@@ -1,4 +1,5 @@
 from selenium.webdriver.support import expected_conditions as ec
+from selenium.webdriver.support.select import Select
 from selenium.webdriver.support.ui import WebDriverWait
 """This class is the parent of all classes"""
 """It contains all the generic methods and utilities for all pages"""
@@ -59,3 +60,12 @@ class BasePage:
                     ele.click()
             except Exception as e:
                 print(e)
+
+
+    def select_by_values(self, element, index):
+        select =Select(element)
+        #select.select_by_value(value)
+        self.select_by.index(index)
+
+
+

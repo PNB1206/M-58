@@ -9,4 +9,7 @@ class TestData:
     Err_msg = "Mobile or Password is incorrect"
     dashboard_page_title = "SB Admin 2 - Dashboard"
 
+    nameslist =["MA-01"]
+
+
 
