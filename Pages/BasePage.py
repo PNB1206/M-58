@@ -46,9 +46,9 @@ class BasePage:
 
         # To select multiple options from drop down
 
-    def select_all_values(options_list, value):
+    def select_all_values(self, names_list, value):
         if not value[0] == 'all':
-            for ele in options_list:
+            for ele in names_list:
                 print(ele.text)
                 for k in range(len(value)):
                     if ele.text == value[k]:
@@ -56,16 +56,11 @@ class BasePage:
                         break
         else:
             try:
-                for ele in options_list:
+                for ele in names_list:
                     ele.click()
             except Exception as e:
                 print(e)
 
-
-    def select_by_values(self, element, index):
-        select =Select(element)
-        #select.select_by_value(value)
-        self.select_by.index(index)
 
 
 

@@ -16,13 +16,12 @@ class Dashboard_Page(BasePage):
 
     assign_driver = (By.XPATH, "//span[normalize-space()='Assign Driver']")
     driver_btn = (By.XPATH, "//a[normalize-space()='Driver']")
-    nick_name =(By.XPATH, "//select[@id='machine_select']")
-    names_xpath = "//select[@id='machine_select']/option"
+    nick_names =  "//select[@id='machine_select']/option"
     start_timer = (By.XPATH, "//input[@id='start_timer']")
     stop_timer = (By.XPATH, "//input[@id='start_timer']")
     reset_timer =(By.XPATH, "//input[@value='Reset']")
     submit_button =(By.XPATH, "//button[normalize-space()='Submit']")
-    value ="MA-03"
+    value =["MA-03"]
 
     def get_dashboard_page_title(self, title):
         title = self.get_title(title)
@@ -33,12 +32,13 @@ class Dashboard_Page(BasePage):
         self.do_click(self.driver_btn)
 
     def select_nickname(self):
-        nameslist = self.driver.find_elements(By.XPATH, self.names_xpath)
-        for ele in nameslist:
-            ele.text
-            if ele.text == 'MA-01':
-                ele.click()
-                break
+        namelist = self.driver.find_elements(By.XPATH, self.nick_names)
+        # for ele in nameslist:
+        #     ele.text
+        #     if ele.text == 'MA-01':
+        #         ele.click()
+        #         break
+        self.select_all_values(namelist, self.value)
 
     def click_on_start(self):
         self.do_click(self.start_timer)
